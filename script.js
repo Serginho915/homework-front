@@ -148,11 +148,11 @@ const TRs = sports
 				console.log(currWinners)
 			return `<tr>
 				<td>${sportIcon}</td>
-				<td>${Europe.join('')}</td>
-				<td>${Africa.join('')}</td>
-				<td>${America.join('')}</td>
-				<td>${Asia.join('')}</td>
-				<td>${Oceania.join('')}</td>
+				<td>${Europe.join(' ')}</td>
+				<td>${Africa.join(' ')}</td>
+				<td>${America.join(' ')}</td>
+				<td>${Asia.join(' ')}</td>
+				<td>${Oceania.join(' ')}</td>
 			</tr>`
 		}
 	)
