@@ -1,95 +1,91 @@
 const sports = [
-	['🤺','fencing'],
-	['⛸','figure skating'],
-	['⛷','skier'],
-	['🏂','snowboarder'],
-	['🏌','golfing'],
-	['🚣','rowing boat'],
-	['🏊','swimming'],
-	['🤸','gymnastics'],
-	['🤾','handball']
+    ['🤺','fencing'],
+    ['⛸','figure skating'],
+    ['⛷','skier'],
+    ['🏂','snowboarder'],
+    ['🏌','golfing'],
+    ['🚣','rowing boat'],
+    ['🏊','swimming'],
+    ['🤸','gymnastics'],
+    ['🤾','handball']
 ];
 
 const winners = [
-	['fencing','gold','fr'],
-	['fencing','silver','it'],
-	['fencing','bronze','us'],
+    ['fencing','🥇','fr'],
+    ['fencing','🥈','it'],
+    ['fencing','🥉','us'],
 
-	['figure skating','gold','ca'],
-	['figure skating','silver','ru'],
-	['figure skating','bronze','us'],
+    ['figure skating','🥇','ca'],
+    ['figure skating','🥈','fr'],
+    ['figure skating','🥉','us'],
 
-	['skier','gold','no'],
-	['skier','silver','ru'],
-	['skier','bronze','fr'],
+    ['skier','🥇','no'],
+    ['skier','🥈','us'],
+    ['skier','🥉','fr'],
 
-	['snowboarder','gold','us'],
-	['snowboarder','silver','jp'],
-	['snowboarder','bronze','au'],
+    ['snowboarder','🥇','us'],
+    ['snowboarder','🥈','jp'],
+    ['snowboarder','🥉','au'],
 
-	['golfing','gold','gb'],
-	['golfing','silver','se'],
-	['golfing','bronze','us'],
+    ['golfing','🥇','gb'],
+    ['golfing','🥈','se'],
+    ['golfing','🥉','us'],
 
-	['rowing boat','gold','us'],
-	['rowing boat','silver','gb'],
-	['rowing boat','bronze','ro'],
+    ['rowing boat','🥇','us'],
+    ['rowing boat','🥈','ml'],
+    ['rowing boat','🥉','ro'],
 
-	['swimming','gold','us'],
-	['swimming','silver','gb'],
-	['swimming','bronze','au'],
+    ['swimming','🥇','us'],
+    ['swimming','🥈','gb'],
+    ['swimming','🥉','au'],
 
-	['gymnastics','gold','ru'],
-	['gymnastics','silver','ru'],
-	['gymnastics','bronze','ua'],
+    ['gymnastics','🥇','it'],
+    ['gymnastics','🥈','fr'],
+    ['gymnastics','🥉','ua'],
 
-	['handball','gold','dk'],
-	['handball','silver','fr'],
-	['handball','bronze','de'],
+    ['handball','🥇','dk'],
+    ['handball','🥈','ke'],
+    ['handball','🥉','de'],
 ];
 
 const olympic = ['🔵','⚫','🔴','🟡','🟢'];
-
-const medals = [
-	['🥇','gold'],
-	['🥈','silver'],
-	['🥉','bronze'],
-];
+// Європа — синій, Африка — чорний, Америка — червоний, Азія — жовтий, Австралія — зелений
 
 const continents = [
-	['fr','Europe'],
-	['it','Europe'],
-	['us','The Americas'],
-	['ca','The Americas'],
-	['ru','Europe'],
-	['no','Europe'],
-	['jp','Asia'],
-	['au','Oceania'],
-	['gb','Europe'],
-	['se','Europe'],
-	['ro','Europe'],
-	['ua','Europe'],
-	['dk','Europe'],
-	['de','Europe']
+    ['fr','Europe'],
+    ['it','Europe'],
+    ['us','America'],
+    ['ca','America'],
+    ['no','Europe'],
+    ['jp','Asia'],
+    ['au','Oceania'],
+    ['gb','Europe'],
+    ['se','Europe'],
+    ['ro','Europe'],
+    ['ua','Europe'],
+    ['dk','Europe'],
+    ['de','Europe'],
+    ['ke','Africa'],
+    ['ml','Africa']
 ];
 
 const flags = [
-	['fr','🇫🇷'],
-	['it','🇮🇹'],
-	['us','🇺🇸'],
-	['ca','🇨🇦'],
-	['ru','🇷🇺'],
-	['no','🇳🇴'],
-	['jp','🇯🇵'],
-	['au','🇦🇺'],
-	['gb','🇬🇧'],
-	['se','🇸🇪'],
-	['ro','🇷🇴'],
-	['ua','🇺🇦'],
-	['dk','🇩🇰'],
-	['de','🇩🇪']
+    ['fr','🇫🇷'],
+    ['it','🇮🇹'],
+    ['us','🇺🇸'],
+    ['ca','🇨🇦'],
+    ['no','🇳🇴'],
+    ['jp','🇯🇵'],
+    ['au','🇦🇺'],
+    ['gb','🇬🇧'],
+    ['se','🇸🇪'],
+    ['ro','🇷🇴'],
+    ['ua','🇺🇦'],
+    ['dk','🇩🇰'],
+    ['de','🇩🇪'],
+    ['ke','🇰🇪'],
+    ['ml','🇲🇱']
 ];
-
 function getContinentByCountry(country){
 	let currCountry = continents
 		.find(
