@@ -86,6 +86,7 @@ const flags = [
     ['ke','🇰🇪'],
     ['ml','🇲🇱']
 ];
+
 function getContinentByCountry(country){
 	let currCountry = continents
 		.find(
@@ -95,6 +96,27 @@ function getContinentByCountry(country){
 		);
 	return currCountry[1];
 }
+
+function getCountryFlag(country){
+	let currFlag = flags
+	.find(
+		function(item){
+			return item[0] === country;
+		}
+	)
+	return currFlag[1];
+}
+
+function getWinnerMedal(country, sport){
+	let currMedal = winners
+	.find(
+		function(item){
+			return item[2] === country && item[0] === sport;
+		}
+	)
+	return currMedal[1];
+}
+console.log(getWinnerMedal(`fr` , `fencing`));
 
 const THs = olympic
 	.map(
@@ -116,36 +138,42 @@ const TRs = sports
 			Oceania = [];
 
 			let currWinners = winners
-				.filter(
-					function(winner){
-						return winner[0] === sportName;
+					.filter(
+						function(winner){
+							return winner[0] === sportName;
 					}
-				)
-				.forEach(
-					function(winner){
-						let winnerCountry = winner[2];
-						let winnerContinent = getContinentByCountry(winnerCountry);
-						
-						switch(winnerContinent){
-							case 'Europe':
-								Europe.push(winner)
-								break;
-							case 'Africa':
-								Africa.push(winner)
-								break;
-							case 'America':
-								America.push(winner)
-								break;
-							case 'Asia':
-								Asia.push(winner)
-								break;
-							case 'Oceania':
-								Oceania.push(winner)
-								break;
+					)
+					.forEach(
+						function(winner){
+							let winnerCountry =  winner[2] ;
+							let winnerSport =  winner[0] ;
+							let winnerFlag = getCountryFlag(winnerCountry);
+							let winnerContinent = getContinentByCountry(winnerCountry);
+							let winnerMedal = getWinnerMedal(winnerCountry, winnerSport)
+							
+							let rendered = `<div>${winnerFlag} – ${winnerMedal}</div>`;
+
+
+							switch(winnerContinent){
+								case 'Europe':
+									Europe.push(rendered)
+									break;
+								case 'Africa':
+									Africa.push(rendered)
+									break;
+								case 'America':
+									America.push(rendered)
+									break;
+								case 'Asia':
+									Asia.push(rendered)
+									break;
+								case 'Oceania':
+									Oceania.push(rendered)
+									break;
+							}
 						}
-					}
-				)
-				console.log(currWinners)
+					)
+			
 			return `<tr>
 				<td>${sportIcon}</td>
 				<td>${Europe.join(' ')}</td>
@@ -157,7 +185,7 @@ const TRs = sports
 		}
 	)
 	.join('');
-
+console.log(TRs);
 document.write(`
 <table>
 	<thead>
