@@ -1,201 +1,251 @@
-const sports = [
-    ['🤺','fencing'],
-    ['⛸','figure skating'],
-    ['⛷','skier'],
-    ['🏂','snowboarder'],
-    ['🏌','golfing'],
-    ['🚣','rowing boat'],
-    ['🏊','swimming'],
-    ['🤸','gymnastics'],
-    ['🤾','handball']
-];
+const gradation = {
+	20: "satisfactory",
+	55: "good",
+	85: "very-good",
+	100: "excellent"
+};
 
-const winners = [
-    ['fencing','🥇','fr'],
-    ['fencing','🥈','it'],
-    ['fencing','🥉','us'],
-
-    ['figure skating','🥇','ca'],
-    ['figure skating','🥈','fr'],
-    ['figure skating','🥉','us'],
-
-    ['skier','🥇','no'],
-    ['skier','🥈','us'],
-    ['skier','🥉','fr'],
-
-    ['snowboarder','🥇','us'],
-    ['snowboarder','🥈','jp'],
-    ['snowboarder','🥉','au'],
-
-    ['golfing','🥇','gb'],
-    ['golfing','🥈','se'],
-    ['golfing','🥉','us'],
-
-    ['rowing boat','🥇','us'],
-    ['rowing boat','🥈','ml'],
-    ['rowing boat','🥉','ro'],
-
-    ['swimming','🥇','us'],
-    ['swimming','🥈','gb'],
-    ['swimming','🥉','au'],
-
-    ['gymnastics','🥇','it'],
-    ['gymnastics','🥈','fr'],
-    ['gymnastics','🥉','ua'],
-
-    ['handball','🥇','dk'],
-    ['handball','🥈','ke'],
-    ['handball','🥉','de'],
-];
-
-const olympic = ['🔵','⚫','🔴','🟡','🟢'];
-// Європа — синій, Африка — чорний, Америка — червоний, Азія — жовтий, Австралія — зелений
-
-const continents = [
-    ['fr','Europe'],
-    ['it','Europe'],
-    ['us','America'],
-    ['ca','America'],
-    ['no','Europe'],
-    ['jp','Asia'],
-    ['au','Oceania'],
-    ['gb','Europe'],
-    ['se','Europe'],
-    ['ro','Europe'],
-    ['ua','Europe'],
-    ['dk','Europe'],
-    ['de','Europe'],
-    ['ke','Africa'],
-    ['ml','Africa']
-];
-
-const flags = [
-    ['fr','🇫🇷'],
-    ['it','🇮🇹'],
-    ['us','🇺🇸'],
-    ['ca','🇨🇦'],
-    ['no','🇳🇴'],
-    ['jp','🇯🇵'],
-    ['au','🇦🇺'],
-    ['gb','🇬🇧'],
-    ['se','🇸🇪'],
-    ['ro','🇷🇴'],
-    ['ua','🇺🇦'],
-    ['dk','🇩🇰'],
-    ['de','🇩🇪'],
-    ['ke','🇰🇪'],
-    ['ml','🇲🇱']
-];
-
-function getContinentByCountry(country){
-	let currCountry = continents
-		.find(
-			function(item){
-				return item[0] === country;
+const users = [
+	{
+		name: "Jack Smith",
+		age: 23,
+		img: "JackSmith",
+		role: "student",
+		courses: [
+			{
+				"title": "Front-end Pro",
+				"mark": 20
+			},
+			{
+				"title": "Java Enterprise",
+				"mark": 100
 			}
-		);
-	return currCountry[1];
-}
+		]
+	},
+	{
+		name: "Amal Smith",
+		age: 20,
+		img: "AmalSmith",
+		role: "student"
+	},
+	{
+		name: "Noah Smith",
+		age: 43,
+		img: "NoahSmith",
+		role: "student",
+		courses: [
+			{
+				"title": "Front-end Pro",
+				"mark": 50
+			}
+		]
+	},
+	{
+		name: "Charlie Smith",
+		age: 18,
+		img: "CharlieSmith",
+		role: "student",
+		courses: [
+			{
+				"title": "Front-end Pro",
+				"mark": 75
+			},
+			{
+				"title": "Java Enterprise",
+				"mark": 23
+			}]
+	},
+	{
+		name: "Emily Smith",
+		age: 30,
+		img: "EmilySmith",
+		role: "admin",
+		courses: [
+			{
+				"title": "Front-end Pro",
+				"score": 10,
+				"lector": "Leo Smith"
+			},
+			{
+				"title": "Java Enterprise",
+				"score": 50,
+				"lector": "David Smith"
+			},
+			{
+				"title": "QA",
+				"score": 75,
+				"lector": "Emilie Smith"
+			}]
+	},
+	{
+		name: "Leo Smith",
+		age: 253,
+		img: "LeoSmith",
+		role: "lector",
+		courses: [
+			{
+				"title": "Front-end Pro",
+				"score": 78,
+				"studentsScore": 79
+			},
+			{
+				"title": "Java Enterprise",
+				"score": 85,
+				"studentsScore": 85
+			}
+		]
+	}
+];
 
-function getCountryFlag(country){
-	let currFlag = flags
-	.find(
-		function(item){
-			return item[0] === country;
-		}
-	)
-	return currFlag[1];
-}
+class User{
 
-function getWinnerMedal(country, sport){
-	let currMedal = winners
-	.find(
-		function(item){
-			return item[2] === country && item[0] === sport;
-		}
-	)
-	return currMedal[1];
-}
-console.log(getWinnerMedal(`fr` , `fencing`));
+    constructor(obj){
+		Object.assign(this,obj)
+	}
+    render(){
 
-const THs = olympic
-	.map(
-		function(circle){
-			return `<th>${circle}</th>`
-		}
-	)
-	.join('');
+		return document.write
+		(`<div class = "users">
+			<div class = "user">
+				<div class="user__info">
+					<div class="user__info--data">
+						<img src="images/users/${this.img}.png" alt="${this.name}" height="50">
+						<div class="user__naming">
+							<p>Name: <b>${this.name}</b></p>
+							<p>Age: <b>${this.age}</b></p>
+						</div>
+					</div>
+						<div class="user__info--role ${this.role}">
+							<img src="images/roles/${this.role}.png" alt="${this.role}" height="25">
+							<p>${this.role}</p>
+						</div> 
+					</div> 
+					<div class="user__courses">
+					${this.renderCourses()}
+					</div>
+			</div>
+		  </div> `
+		 
+		 )
+	}
 
-const TRs = sports
-	.map(
-		function(sport){
-			let sportIcon = sport[0];
-			let sportName = sport[1];
-			let Europe = [],
-			Africa = [],
-			America = [],
-			Asia = [],
-			Oceania = [];
-
-			let currWinners = winners
-					.filter(
-						function(winner){
-							return winner[0] === sportName;
-					}
-					)
-					.forEach(
-						function(winner){
-							let winnerCountry =  winner[2] ;
-							let winnerSport =  winner[0] ;
-							let winnerFlag = getCountryFlag(winnerCountry);
-							let winnerContinent = getContinentByCountry(winnerCountry);
-							let winnerMedal = getWinnerMedal(winnerCountry, winnerSport)
-							
-							let rendered = `<div>${winnerFlag} – ${winnerMedal}</div>`;
-
-
-							switch(winnerContinent){
-								case 'Europe':
-									Europe.push(rendered)
-									break;
-								case 'Africa':
-									Africa.push(rendered)
-									break;
-								case 'America':
-									America.push(rendered)
-									break;
-								case 'Asia':
-									Asia.push(rendered)
-									break;
-								case 'Oceania':
-									Oceania.push(rendered)
-									break;
-							}
-						}
-					)
+    renderCourses(){
+		
+		function getMark(mark){
+			for (let key in gradation) {
 			
-			return `<tr>
-				<td>${sportIcon}</td>
-				<td>${Europe.join(' ')}</td>
-				<td>${Africa.join(' ')}</td>
-				<td>${America.join(' ')}</td>
-				<td>${Asia.join(' ')}</td>
-				<td>${Oceania.join(' ')}</td>
-			</tr>`
+				if(mark <= key)return gradation[key];
+		
+			}
 		}
-	)
-	.join('');
-console.log(TRs);
-document.write(`
-<table>
-	<thead>
-		<tr>
-			<th></th>
-			${THs}
-		</tr>
-	</thead>
-	<tbody>
-		${TRs}
-	</tbody>
-</table>
-`)
+		
+		
+		
+		if(this.courses){
+			 return this.courses.map(course => {
+				return(` <p class="user__courses--course student">${course.title} <span class="${getMark(course.mark)}">${getMark(course.mark)}</span></p>`)
+		   });
+		}
+		else{
+			return ``;
+		}
+
+		
+		
+	}
+}
+
+class Student extends User{
+	constructor(obj){
+		super(obj);
+	}
+}
+
+class Lector extends User{
+	constructor(obj){
+		super(obj);
+	}
+	renderCourses(score){
+		function getMark(mark){
+			for (let key in gradation) {
+			
+				if(mark <= key)return gradation[key];
+		
+			}
+		}
+
+		if(this.courses){
+			 return this.courses.map(course => {
+				return(` 
+				<div class="user__courses admin--info">
+					<div class="user__courses--course lector">
+						<p>Title: <b>${course.title}</b></p>
+						<p>Lector's score: <span class="${getMark(course.score)}">${getMark(course.score)}</span></p>
+						<p>Average student's score: <span class="${getMark(course.studentsScore)}">${getMark(course.studentsScore)}</span></p>
+					</div>
+				</div>
+				</div>
+				`
+					
+				)
+		   });
+		}
+		else{
+			return ``;
+		}
+	}
+}
+class Admin extends User{
+	constructor(obj){
+		super(obj);
+	}
+	renderCourses(score){
+		function getMark(mark){
+			for (let key in gradation) {
+			
+				if(mark <= key)return gradation[key];
+		
+			}
+		}
+
+		if(this.courses){
+			 return this.courses.map(course => {
+				return(` 
+				<div class="user__courses admin--info">
+					<div class="user__courses--course admin">
+						<p>Title: <b>${course.title}</b></p>
+						<p>Admin's score: <span class="${getMark(course.score)}">${getMark(course.score)}</span></p>
+						<p>Lector: <b>${course.lector}</b></p>
+					</div>
+				</div>`
+				)
+		   });
+		}
+		else{
+			return ``;
+		}
+
+		
+		
+	}
+}
+
+
+const User_Type = {
+	 
+	student: user => new Student(user).render(),
+    lector: user => new Lector(user).render(),
+    admin: user => new Admin(user).render()
+}
+
+let newUsers = users.map(user =>{
+
+	let userRole = user.role;
+	return User_Type[userRole] ? User_Type[userRole](user) : new User(user);
+
+
+})
+
+
+
+
