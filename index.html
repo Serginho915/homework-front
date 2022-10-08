@@ -5,19 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="script.js"></script>
-    <style>
-        table {
-            border-collapse: collapse;
-            table-layout: fixed
-        }
-        th, td {
-            border: 1px solid black;
-            text-align: center;
-        }
-    </style>
+    
+        <style>
+            body{
+                margin: 0;
+                height: 100vh;
+            }
+            .square{
+                width: 100px;
+                height: 100px;
+                background-color: black;
+                transition: all ease 0.4s;
+                position: relative;
+            }
+        </style>
 </head>
 <body>
-    
+    <div id="square" class="square"></div>
+    <script src="script.js"></script>
 </body>
 </html>
