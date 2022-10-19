@@ -10,18 +10,60 @@
             body{
                 margin: 0;
                 height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
             }
             .square{
                 width: 100px;
                 height: 100px;
                 background-color: black;
-                transition: all ease 0.4s;
+                transition: all ease 0.6s;
+                position: relative;
+            }
+            p{
+                font-size: 40px;
+                color: aliceblue;
+                margin: 0;
+                text-align: center;
+            }
+            .rectangle {
+                height: 150px;
+                width: 100px;
+                background-color: black;
+                transition: all ease 0.6s;
+                position: relative;
+            }
+
+            .circle{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;;
+                background-color: black;
+                transition: all ease 0.6s;
                 position: relative;
             }
         </style>
 </head>
 <body>
-    <div id="square" class="square"></div>
+
+    <div id="element"></div>
+    <form id="chooseElement">
+        <label>
+            Choose element shape:
+            <select id="select">
+                <option value="square" id="sqare">square</option>
+                <option value="rectangle" id="rectangle">rectangle</option>
+                <option value="circle" id="circle">circle</option>
+            </select>
+        </label>
+        <label>
+            Choose element color:
+            <input type="color" id="color">
+        </label>
+        <button>Render element</button>
+    </form>
     <script src="script.js"></script>
 </body>
 </html>
